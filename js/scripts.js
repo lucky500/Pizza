@@ -52,8 +52,11 @@ $(document).ready(function(){
     //grap size
     var inputSize = Number($("select#size option:selected").val());
     console.log(inputSize);
-    var newPrice  = new Pizza(this.basePice, inputToppingsTotal , inputSize);
+    var newPrice  = new Pizza(this.basePrice, inputToppingsTotal , inputSize);
     console.log(newPrice);
     console.log(newPrice.totalPrice());
+    newPrice.total = newPrice.totalPrice()
+    console.log('pizzaTotal', newPrice.total);
+    $('.output').text(newPrice.total);
   });
 });
