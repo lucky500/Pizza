@@ -50,21 +50,30 @@ var pizzaIngredients  = {
   ]
 }
 
-// class Pizza {
+//Experimenting a little bit with ES6 classes and methods.
+class Pizza {
+  constructor(basePrice, toppingsPrice, size, total){
+    this.basePrice = 8;
+    this.toppingsPrice = toppingsPrice;
+    this.size = size;
+    this.total = 0;
+  }
+  totalPrice(){
+    return this.basePrice + this.toppingsPrice + this.size;
+  }
+};
 
+//ES5 Object and prototype
+// function Pizza(basePrice, toppingsPrice, size, total) {
+//   this.basePrice = 8;
+//   this.toppingsPrice = toppingsPrice;
+//   this.size = size;
+//   this.total = 0;
 // }
 
-
-function Pizza(basePrice, toppingsPrice, size, total) {
-  this.basePrice = 8;
-  this.toppingsPrice = toppingsPrice;
-  this.size = size;
-  this.total = 0;
-}
-
-Pizza.prototype.totalPrice = function(){
-  return this.basePrice + this.toppingsPrice + this.size;
-}
+// Pizza.prototype.totalPrice = function(){
+//   return this.basePrice + this.toppingsPrice + this.size;
+// }
 
 
 //Grab values from inputted fiels, such as size and toppings
@@ -111,9 +120,10 @@ function init(){
      return inputToppingsTotal;
     });
 
-    //grab size
+    //grab size 
     var inputSize = Number($("select#size option:selected").val());
     var newPrice  = new Pizza(this.basePrice, inputToppingsTotal , inputSize);
-    newPrice.total = newPrice.totalPrice()
+    // Experimenting with ES6 String Interpolation
+    newPrice.total = newPrice.totalPrice();
     $('.output').text(`Your ${inputToppingsList} pizza will be: ${newPrice.total}`);
   });
