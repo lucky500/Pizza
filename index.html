@@ -3,44 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <title>Pizza Shop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="js/scripts.js"></script>
 </head>
 <body>
-  <div class="container">
-    <form action="" class="form">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>Order your pizza</h3>
-        <p>Which toppings would you like?</p>
-        <div id="toppings">
-          <input type="checkbox" name="toppings" value=".25">Cheese
-          <input type="checkbox" name="toppings" value=".25">Pepperoni
-          <input type="checkbox" name="toppings" value=".25">Artichoke
-          <input type="checkbox" name="toppings" value=".25">Ham
-          <input type="checkbox" name="toppings" value=".25">Hamburger
-          <input type="checkbox" name="toppings" value=".25">Bacon
-          <input type="checkbox" name="toppings" value=".25">Onions
-          <input type="checkbox" name="toppings" value=".25">Spinash
-          <input type="checkbox" name="toppings" value=".25">Tomatoes
-          <input type="checkbox" name="toppings" value=".25">Black Olives
-          <input type="checkbox" name="toppings" value=".25">Pineapple
+  <div class="container">  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="pizza-ingredients">
+        <div class="pizza crust">
+          <img src="img/crust.png" alt="">
         </div>
-        <select name="size" id="size">
-          <option value="0">Small</option> 
-          <option value="2">Medium</option>
-          <option value="4">Large</option>
-        </select>
+        <div class="pizza sauce">
+          <img src="img/sauce.png" alt="">
+        </div>
+        <div class="pizza cheese hide" id="cheeseImg">
+          <img src="img/cheese.png" alt="cheese topping">
+        </div>
+        <div class="pizza pepperoni hide" id="pepperoniImg">
+          <img src="img/pepperoni.png" alt="pepperoni topping">
+        </div>
+        <div class="pizza tomato hide" id="tomatoImg">
+          <img src="img/tomatoes.png" alt="tomato topping">
+        </div>
       </div>
     </div>
-    <button type="submit" class="submit">Order Now</button>
-    <div class="row">
-      <div class="output">
-        
+      <div class="col-sm-6">
+        <form action="" class="form">
+          <h3>Order your pizza</h3>
+          <p>Which toppings would you like?</p>
+          <div id="toppings">
+            <input id="cheeseInput" type="checkbox" name="toppings" value=".25">Cheese
+            <input id="pepperoniInput" type="checkbox" name="toppings" value=".25">Pepperoni
+            <input type="checkbox" name="toppings" value=".25">Artichoke
+            <input type="checkbox" name="toppings" value=".25">Ham
+            <input type="checkbox" name="toppings" value=".25">Hamburger
+            <input type="checkbox" name="toppings" value=".25">Bacon
+            <input type="checkbox" name="toppings" value=".25">Onions
+            <input type="checkbox" name="toppings" value=".25">Spinash
+            <input id="tomatoInput" type="checkbox" name="toppings" value=".25">Tomatoes
+            <input type="checkbox" name="toppings" value=".25">Black Olives
+            <input type="checkbox" name="toppings" value=".25">Pineapple
+          </div>
+          <select name="size" id="size">
+            <option value="1">Small</option> 
+            <option value="3">Medium</option>
+            <option value="5">Large</option>
+          </select>
+          <button type="submit" class="submit">Order Now</button>
+        </form>
+        <div class="output"></div>
       </div>
     </div>
-    </form>
   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </body>
 </html>
