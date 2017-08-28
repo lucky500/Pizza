@@ -1,8 +1,12 @@
 # _Pizza Shop_
 
-#### _Order a delicious pizza, 08/25/2017_
+#### _Order a pizza, 08/25/2017_
 
 #### By _**Luciano Oliveira**_
+
+## Disclaimer
+
+I wanted to build a pizza maker, pretty much like the one on the Domino's App. I could not find images anywhere, so I copied images and got inspiration from this project built by Thomas Kolodziejczak  - https://github.com/Thomas-Ko/pizza-builder, I also made use of his method where, the images get matched up with the checkboxes.
 
 ## Description
 
