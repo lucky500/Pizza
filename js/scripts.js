@@ -3,22 +3,29 @@
 var pizzaIngredients  = {
   toppings: [
     {
-      name: "Pepperoni",
       imgId: "pepperoniImg",
       inputId: "pepperoniInput"
     },
     {
-      name: "Cheese",
-      imgId: "pepperoniImg",
-      inputId: "pepperoniInput"
+      imgId: "cheeseImg",
+      inputId: "cheeseInput"
     },
     {
-      name: "Tomato",
+      imgId: "blackOlivesImg",
+      inputId: "blackOlivesInput"
+    },
+    {
+      imgId: "hamImg",
+      inputId: "hamInput"
+    },
+    {
       imgId: "tomatoImg",
       inputId: "tomatoInput"
     }
   ]
 }
+
+
 
 function Pizza(basePrice, toppingsPrice, size, total) {
   this.basePrice = 8;
@@ -37,13 +44,42 @@ Pizza.prototype.totalPrice = function(){
 //Output total to client
 
 //User Interface Logic
-$(document).ready(function(){
+$(document).ready(init);
+
+function init(){
+  matchingValues();
+};
+
   var inputToppingsTotal = 0;
+  function matchingValues(){
+    for (var i=0; i < pizzaIngredients.toppings.length; i++){
+  (function(){
+      var imgId = pizzaIngredients.toppings[i].imgId;
+      var imgDiv = document.getElementById(imgId);
+
+      var inputId = pizzaIngredients.toppings[i].inputId;
+      var inputDiv = document.getElementById(inputId);
+
+      $(inputDiv).on('click', function(){
+        if (inputDiv.checked){
+          console.log('checked');
+          $(imgDiv).removeClass('hide');
+        } else {
+          console.log('not checked');
+          $(imgDiv).addClass('hide');
+        }
+      });
+        console.log(pizzaIngredients.toppings[i].name);
+  }(i));
+    }
+  }
+  
   $('form').submit(function(e){
     e.preventDefault();
     //grab toppings input
     $("input:checkbox[name=toppings]:checked").each(function(topping){
       var $this=$(this).val();
+      console.log('this:', $this);
        inputToppingsTotal = inputToppingsTotal + Number($this);
        return inputToppingsTotal;
        console.log(inputToppingsTotal);
@@ -60,4 +96,3 @@ $(document).ready(function(){
     console.log('pizzaTotal', newPrice.total);
     $('.output').text(newPrice.total);
   });
-});
