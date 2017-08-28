@@ -3,12 +3,12 @@
 var pizzaIngredients  = {
   toppings: [
     {
-      imgId: "pepperoniImg",
-      inputId: "pepperoniInput"
-    },
-    {
       imgId: "cheeseImg",
       inputId: "cheeseInput"
+    },
+    {
+      imgId: "pepperoniImg",
+      inputId: "pepperoniInput"
     },
     {
       imgId: "blackOlivesImg",
@@ -19,12 +19,40 @@ var pizzaIngredients  = {
       inputId: "hamInput"
     },
     {
+      imgId: "hamburgerImg",
+      inputId: "hamburgerInput"
+    },
+    {
+      imgId: "baconImg",
+      inputId: "baconInput"
+    }
+    ,
+    {
+      imgId: "onionsImg",
+      inputId: "onionsInput"
+    },
+    {
+      imgId: "spinashImg",
+      inputId: "spinashInput"
+    },
+    {
       imgId: "tomatoImg",
       inputId: "tomatoInput"
+    },
+    {
+      imgId: "mushroomsImg",
+      inputId: "mushroomsInput"
+    },
+    {
+      imgId: "pineapplesImg",
+      inputId: "pineapplesInput"
     }
   ]
 }
 
+// class Pizza {
+
+// }
 
 
 function Pizza(basePrice, toppingsPrice, size, total) {
@@ -51,6 +79,7 @@ function init(){
 };
 
   var inputToppingsTotal = 0;
+  var inputToppingsList = [];
   function matchingValues(){
     for (var i=0; i < pizzaIngredients.toppings.length; i++){
   (function(){
@@ -62,14 +91,11 @@ function init(){
 
       $(inputDiv).on('click', function(){
         if (inputDiv.checked){
-          console.log('checked');
           $(imgDiv).removeClass('hide');
         } else {
-          console.log('not checked');
           $(imgDiv).addClass('hide');
         }
       });
-        console.log(pizzaIngredients.toppings[i].name);
   }(i));
     }
   }
@@ -78,21 +104,16 @@ function init(){
     e.preventDefault();
     //grab toppings input
     $("input:checkbox[name=toppings]:checked").each(function(topping){
-      var $this=$(this).val();
-      console.log('this:', $this);
-       inputToppingsTotal = inputToppingsTotal + Number($this);
-       return inputToppingsTotal;
-       console.log(inputToppingsTotal);
+      var $this=$(this); 
+     inputToppingsList.push($this.next('label').text());
+     inputToppingsList.join(', ');
+     inputToppingsTotal = inputToppingsTotal + Number($this.val());
+     return inputToppingsTotal;
     });
+
     //grab size
     var inputSize = Number($("select#size option:selected").val());
     var newPrice  = new Pizza(this.basePrice, inputToppingsTotal , inputSize);
-    //console
-    console.log(inputSize);
-    console.log(newPrice);
-    console.log(newPrice.totalPrice());
-    //console
     newPrice.total = newPrice.totalPrice()
-    console.log('pizzaTotal', newPrice.total);
-    $('.output').text(newPrice.total);
+    $('.output').text(`Your ${inputToppingsList} pizza will be: ${newPrice.total}`);
   });

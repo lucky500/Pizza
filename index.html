@@ -29,8 +29,26 @@
         <div class="pizza ham hide" id="hamImg">
           <img src="img/ham.png" alt="ham topping">
         </div>
+        <div class="pizza hamburger hide" id="hamburgerImg">
+          <img src="img/hamburger.png" alt="hamburger topping">
+        </div>
+        <div class="pizza bacon hide" id="baconImg">
+          <img src="img/bacon.png" alt="bacon topping">
+        </div>
+        <div class="pizza onions hide" id="onionsImg">
+          <img src="img/onions.png" alt="onions topping">
+        </div>
+        <div class="pizza spinash hide" id="spinashImg">
+          <img src="img/spinash.png" alt="spinash topping">
+        </div>
         <div class="pizza tomato hide" id="tomatoImg">
           <img src="img/tomatoes.png" alt="tomato topping">
+        </div>
+        <div class="pizza mushrooms hide" id="mushroomsImg">
+          <img src="img/mushrooms.png" alt="mushrooms topping">
+        </div>
+        <div class="pizza pineapples hide" id="pineapplesImg">
+          <img src="img/pineapples.png" alt="pineapples topping">
         </div>
       </div>
     </div>
@@ -39,26 +57,70 @@
           <h3>Order your pizza</h3>
           <p>Which toppings would you like?</p>
           <div id="toppings">
-            <input id="cheeseInput" type="checkbox" name="toppings" value=".25">Cheese
-            <input id="pepperoniInput" type="checkbox" name="toppings" value=".25">Pepperoni
-            <input id="blackOlivesInput" type="checkbox" name="toppings" value=".25">Black Olives
-            <input id="hamInput" type="checkbox" name="toppings" value=".25">Ham
-            <input type="checkbox" name="toppings" value=".25">Hamburger
-            <input type="checkbox" name="toppings" value=".25">Bacon
-            <input type="checkbox" name="toppings" value=".25">Onions
-            <input type="checkbox" name="toppings" value=".25">Spinash
-            <input id="tomatoInput" type="checkbox" name="toppings" value=".25">Tomatoes
-            <input type="checkbox" name="toppings" value=".25">Mushrooms
-            <input type="checkbox" name="toppings" value=".25">Pineapple
+            <div class="row">
+              <div class="col-sm-6">
+                <div>
+                  <input id="cheeseInput" type="checkbox" name="toppings" value=".25">
+                  <label for="cheeseInput">Cheese</label>
+                </div>
+                <div>
+                  <input id="pepperoniInput" type="checkbox" name="toppings" value=".25">
+                  <label for="pepperoniInput">Pepperoni</label>
+                </div>
+                <div>
+                  <input id="blackOlivesInput" type="checkbox" name="toppings" value=".25">
+                  <label for="blackOlivesInput">Black Olives</label>
+                </div>
+                <div>
+                  <input id="hamInput" type="checkbox" name="toppings" value=".25">
+                  <label for="hamInput">Ham</label>
+                </div>
+                <div>
+                  <input id="hamburgerInput" type="checkbox" name="toppings" value=".25">
+                  <label for="hamburgerInput">Hamburger</label>
+                </div>
+                <div>
+                  <input id="baconInput" type="checkbox" name="toppings" value=".25">
+                  <label for="baconInput">Bacon</label>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div>
+                  <input id="onionsInput" type="checkbox" name="toppings" value=".25">
+                  <label for="onionsInput">Onions</label>   
+                </div>
+                <div>  
+                  <input id="spinashInput" type="checkbox" name="toppings" value=".25">
+                  <label for="spinashInput">Spinash</label>
+                </div>
+                <div>
+                  <input id="tomatoInput" type="checkbox" name="toppings" value=".25">
+                  <label for="tomatoInput">Tomatoes</label>
+                </div>
+                <div>
+                  <input id="mushroomsInput" type="checkbox" name="toppings" value=".25">
+                  <label for="mushroomsInput">Mushrooms</label>   
+                </div>
+                <div>
+                  <input id="pineappleInput" type="checkbox" name="toppings" value=".25">
+                  <label for="pineappleInput">Pineapple</label>   
+                </div>
+              </div>
+            </div>
           </div>
-          <select name="size" id="size">
-            <option value="1">Small</option> 
+          <div class="form-group">
+            <label for="size">Please choose pizza size:</label>
+            <select name="size" class="form-control" id="size">
+              <option value="1">Small</option> 
             <option value="3">Medium</option>
             <option value="5">Large</option>
-          </select>
-          <button type="submit" class="submit">Order Now</button>
+            </select>
+          </div>
+          <div>
+            <button type="submit" class="submit btn btn-info btn-lg btn-block"">Order Now</button>
+          </div>
+          <div class="output"></div>
         </form>
-        <div class="output"></div>
       </div>
     </div>
   </div>
